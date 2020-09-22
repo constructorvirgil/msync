@@ -4,32 +4,37 @@ import (
 	"fmt"
 	"github.com/aceld/zinx/ziface"
 	"github.com/aceld/zinx/znet"
+	"github.com/constructorvirgil/msync/common"
 )
 
-//ping test 自定义路由
-type PingRouter struct {
+//Login 路由
+type LoginRouter struct {
 	znet.BaseRouter
 }
 
-//Ping Handle
-func (this *PingRouter) Handle(request ziface.IRequest) {
-	//先读取客户端的数据
-	fmt.Println("recv from client : msgId=", request.GetMsgID(), ", data=", string(request.GetData()))
+//Login 回调
+func (this *LoginRouter) Handle(request ziface.IRequest) {
+	msgLogin := common.MsgLogin{}
+	data := request.GetData()
+	err := msgLogin.UnPack(data)
+	if err != nil{
+		fmt.Println("unpack failure: ", string(data))
+		return
+	}
 
-	//再回写ping...ping...ping
-	err := request.GetConnection().SendBuffMsg(0, []byte("ping...ping...ping"))
+	err = request.GetConnection().SendBuffMsg(0, []byte("login ok"))
 	if err != nil {
 		fmt.Println(err)
 	}
 }
 
 func main() {
-	//1 创建一个server句柄
+	//创建服务器句柄
 	s := znet.NewServer()
 
-	//2 配置路由
-	s.AddRouter(0, &PingRouter{})
+	//配置路由
+	s.AddRouter(common.MsgIdLogin, &LoginRouter{})
 
-	//3 开启服务
+	//开启服务
 	s.Serve()
 }
