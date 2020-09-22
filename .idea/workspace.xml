@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c2375bc6-bd2e-4885-9611-f27483885da2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/msync.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/bin/configs/config.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/global/setting.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/pkg/flow/fileflow.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/pkg/setting/section.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/pkg/setting/setting.go" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="/usr/local/go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1horWgiqKTMiunTt7d3dr7K0TTd" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/bin" />
+      <recent name="$PROJECT_DIR$/client" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="go build client" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true">
+      <module name="msync" />
+      <working_directory value="$PROJECT_DIR$/client/bin" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/client/main.go" />
+      <directory value="$PROJECT_DIR$/client" />
+      <output_directory value="$PROJECT_DIR$/client/bin" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build client" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+    <environment>
+      <map>
+        <entry key="GOPROXY" value="https://goproxy.io" />
+      </map>
+    </environment>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-1071" y="-178" width="1071" height="772" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600700773904">
+      <screen x="-1080" y="-817" width="1080" height="1897" />
+    </state>
+    <state x="-1071" y="-178" width="1071" height="772" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1080.-817.1080.1897/0.23.1920.977@-1080.-817.1080.1897" timestamp="1600700773904" />
+    <state x="-1076" y="-207" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1080.-817.1080.1897/0.23.1920.977@0.23.1920.977" timestamp="1600700655966" />
+    <state x="-812" y="-60" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600690346856">
+      <screen x="-1080" y="-817" width="1080" height="1897" />
+    </state>
+    <state x="-812" y="-60" key="#com.intellij.fileTypes.FileTypeChooser/-1080.-817.1080.1897/0.23.1920.977@-1080.-817.1080.1897" timestamp="1600690346856" />
+    <state x="-727" y="-146" key="#com.intellij.ide.util.MemberChooser" timestamp="1600693158191">
+      <screen x="-1080" y="-817" width="1080" height="1897" />
+    </state>
+    <state x="-727" y="-146" key="#com.intellij.ide.util.MemberChooser/-1080.-817.1080.1897/0.23.1920.977@-1080.-817.1080.1897" timestamp="1600693158191" />
+    <state x="-886" y="-84" key="EditFileWatcherDialog" timestamp="1600691685470">
+      <screen x="-1080" y="-817" width="1080" height="1897" />
+    </state>
+    <state x="-886" y="-84" key="EditFileWatcherDialog/-1080.-817.1080.1897/0.23.1920.977@-1080.-817.1080.1897" timestamp="1600691685470" />
+    <state x="-763" y="-93" width="488" height="262" key="EnvironmentVariablesDialog" timestamp="1600689184465">
+      <screen x="-1080" y="-817" width="1080" height="1897" />
+    </state>
+    <state x="-763" y="-93" width="488" height="262" key="EnvironmentVariablesDialog/-1080.-817.1080.1897/0.23.1920.977@-1080.-817.1080.1897" timestamp="1600689184465" />
+    <state width="1038" height="567" key="GridCell.Tab.0.bottom" timestamp="1600747735128">
+      <screen x="-1080" y="-817" width="1080" height="1897" />
+    </state>
+    <state width="1038" height="567" key="GridCell.Tab.0.bottom/-1080.-817.1080.1897/0.23.1920.977@-1080.-817.1080.1897" timestamp="1600747735128" />
+    <state width="1038" height="567" key="GridCell.Tab.0.center" timestamp="1600747735127">
+      <screen x="-1080" y="-817" width="1080" height="1897" />
+    </state>
+    <state width="1038" height="567" key="GridCell.Tab.0.center/-1080.-817.1080.1897/0.23.1920.977@-1080.-817.1080.1897" timestamp="1600747735127" />
+    <state width="1038" height="567" key="GridCell.Tab.0.left" timestamp="1600747735126">
+      <screen x="-1080" y="-817" width="1080" height="1897" />
+    </state>
+    <state width="1038" height="567" key="GridCell.Tab.0.left/-1080.-817.1080.1897/0.23.1920.977@-1080.-817.1080.1897" timestamp="1600747735126" />
+    <state width="1038" height="567" key="GridCell.Tab.0.right" timestamp="1600747735127">
+      <screen x="-1080" y="-817" width="1080" height="1897" />
+    </state>
+    <state width="1038" height="567" key="GridCell.Tab.0.right/-1080.-817.1080.1897/0.23.1920.977@-1080.-817.1080.1897" timestamp="1600747735127" />
+    <state x="-1031" y="-230" key="SettingsEditor" timestamp="1600691686700">
+      <screen x="-1080" y="-817" width="1080" height="1897" />
+    </state>
+    <state x="-1031" y="-230" key="SettingsEditor/-1080.-817.1080.1897/0.23.1920.977@-1080.-817.1080.1897" timestamp="1600691686700" />
+    <state x="-875" y="-372" width="670" height="676" key="search.everywhere.popup" timestamp="1600693537624">
+      <screen x="-1080" y="-817" width="1080" height="1897" />
+    </state>
+    <state x="-875" y="-372" width="670" height="676" key="search.everywhere.popup/-1080.-817.1080.1897/0.23.1920.977@-1080.-817.1080.1897" timestamp="1600693537624" />
+  </component>
+</project>
