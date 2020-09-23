@@ -5,9 +5,8 @@ import (
 	"client/pkg/flow"
 	"client/pkg/setting"
 	"fmt"
-	"github.com/aceld/zinx/znet"
 	"log"
-	"net"
+	"time"
 )
 
 func init() {
@@ -42,21 +41,15 @@ func main() {
 
 	fmt.Printf("ServerIP: %s:%s\n", ip, port)
 
-	conn, err := net.Dial("tcp", ip+":"+port)
-	if err != nil {
-		fmt.Println("client start err, exit!")
-		return
+	go func() {
+		flow.File2net("/Users/kiasma/WKspace/msync/client/bin/test3.txt", ip, port)
+	}()
+
+	go func() {
+		flow.File2net("/Users/kiasma/WKspace/msync/client/bin/go_build_client", ip, port)
+	}()
+
+	for true {
+		time.Sleep(time.Second)
 	}
-
-	data := flow.NewFile("/Users/kiasma/WKspace/msync/client/bin/go_build_client")
-
-	src, _ := data.Pack()
-	for _, v := range src {
-		_ = flow.Send(conn, 1, v)
-		dp := znet.NewDataPack()
-		_ = flow.Catch(conn, *dp)
-	}
-
-	//_ = flow.Send(conn, 0, []byte{})
-
 }

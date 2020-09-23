@@ -1,5 +1,5 @@
 Server:
-  IP: ubuntu.devilvirgil.top
+  IP: 127.0.0.1
   Port: 18000
 Client:
   UserName:
