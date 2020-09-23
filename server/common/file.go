@@ -15,7 +15,7 @@ type FilePart struct {
 }
 
 const (
-	MaxFilePartSize = 1024
+	MaxFilePartSize = 2048
 )
 
 //把一个文件拆分成多个包
