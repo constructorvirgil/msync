@@ -72,9 +72,7 @@ func (c *File) UnPack(bb [][]byte) error{
 	c.FileId = parts[0].FileId
 
 	for _,p := range(parts) {
-		for j:=0;j<len(p.PartContent);j++{
-			c.FileContent = append(c.FileContent, p.PartContent[j])
-		}
+		c.FileContent = append(c.FileContent, p.PartContent...)
 	}
 	return nil
 }

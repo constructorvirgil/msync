@@ -2,14 +2,37 @@ package filemanage
 
 import (
 	"fmt"
+	"github.com/constructorvirgil/msync/common"
+	"io/ioutil"
 	"testing"
+	"time"
 )
 
 func TestAddAndFlush(t *testing.T) {
-	Add("id1", []byte("this is id1 content"))
-	Add("id2", []byte("this is id2 content"))
-	Add("id3", []byte("this is id3 content"))
-	fmt.Println(globalMap)
-	AddAndFlush("id1",[]byte("follow id1 content"))
-	AddAndFlush("id2",[]byte("follow id2 content"))
+	var err error
+	file := common.File{}
+	file.FileId = []byte("test file id")
+	file.FileContent,err = ioutil.ReadFile("C:\\Users\\Administrator\\Documents\\GitHub\\msync\\server\\msync_linux")
+	if err != nil {
+		fmt.Println("read file failure: ", err)
+		return
+	}
+
+	bb, err := file.Pack()
+	if err != nil {
+		fmt.Println(err)
+		t.Fail()
+		return
+	}
+
+	nFile := common.File{}
+	err = nFile.UnPack(bb)
+	if err != nil {
+		fmt.Println(err)
+		t.Fail()
+		return
+	}
+
+	AddAndFlush("id1", nFile.FileContent)
+	time.Sleep(time.Second*3)  //等待写入文件
 }
