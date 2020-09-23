@@ -20,16 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2375bc6-bd2e-4885-9611-f27483885da2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/msync.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/bin/configs/config.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/global/setting.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/go.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pkg/flow/fileflow.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pkg/setting/section.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/pkg/setting/setting.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/pkg/common/common.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/pkg/common/common_test.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/pkg/common/file.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/pkg/common/login.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/client/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pkg/flow/fileflow.go" beforeDir="false" afterPath="$PROJECT_DIR$/client/pkg/flow/fileflow.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,10 +59,13 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/pkg" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/pkg" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/client/bin" />
       <recent name="$PROJECT_DIR$/client" />

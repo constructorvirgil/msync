@@ -1,28 +1,20 @@
 package flow
 
 import (
-	"fmt"
-	"os"
+	"client/pkg/common"
+	"crypto/md5"
+	"io/ioutil"
 )
 
-func file2Byte(fname string) ([]byte, error) {
-	//Open File
-	file, err := os.Open(fname)
+func NewFile(fname string) *common.File {
+	data, err := ioutil.ReadFile(fname)
 	if err != nil {
-		return nil, err
-	}
-	defer file.Close()
-
-	stats, err := file.Stat()
-	if err != nil {
-		return nil, err
+		return nil
 	}
 
-	data := make([]byte, stats.Size())
-	fLen, err := file.Read(data)
-	if err != nil {
-		return nil, err
-	}
-	fmt.Printf("Read file %s len: %d\n", fname, fLen)
-	return data, nil
+	temp := md5.Sum(data)
+	sum := make([]byte, 16)
+
+	copy(sum, temp[:])
+	return &common.File{FileId: sum, FileContent: data}
 }
