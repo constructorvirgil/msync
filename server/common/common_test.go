@@ -21,8 +21,8 @@ func TestGzipEncode(t *testing.T) {
 
 func TestFile_Pack(t *testing.T) {
 	file := File{}
-	file.FileId = 0
-	file.FileContent = genRandomBytes(1027)
+	file.FileId = []byte("test file id")
+	file.FileContent = genRandomBytes(5000)
 
 	bb, err := file.Pack()
 	if err != nil {
