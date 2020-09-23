@@ -41,4 +41,6 @@ func File2net(fName, ip, port string) {
 		dp := znet.NewDataPack()
 		_ = Catch(conn, *dp)
 	}
+
+	fmt.Printf("Finished %v", fName)
 }

@@ -6,7 +6,6 @@ import (
 	"client/pkg/setting"
 	"fmt"
 	"log"
-	"time"
 )
 
 func init() {
@@ -33,23 +32,24 @@ func setupSetting() error {
 }
 
 func main() {
-
 	fmt.Println("Client Test ... start")
 
 	ip := global.ServerSetting.IP
 	port := global.ServerSetting.Port
-
 	fmt.Printf("ServerIP: %s:%s\n", ip, port)
 
-	go func() {
-		flow.File2net("/Users/kiasma/WKspace/msync/client/bin/test3.txt", ip, port)
-	}()
+	files := []string{"/Users/kiasma/WKspace/msync/client/bin/test3.txt",
+		"/Users/kiasma/WKspace/msync/client/bin/go_build_client"}
 
-	go func() {
-		flow.File2net("/Users/kiasma/WKspace/msync/client/bin/go_build_client", ip, port)
-	}()
+	ch := make(chan int)
+	for _, file := range files {
+		go func(file string, ch chan int) {
+			flow.File2net(file, ip, port)
+			ch <- 0
+		}(file, ch)
+	}
 
-	for true {
-		time.Sleep(time.Second)
+	for i := 0; i < len(files); i++ {
+		_ = <-ch
 	}
 }
