@@ -5,9 +5,9 @@ import (
 	"client/pkg/flow"
 	"client/pkg/setting"
 	"fmt"
+	"github.com/aceld/zinx/znet"
 	"log"
 	"net"
-	"time"
 )
 
 func init() {
@@ -36,8 +36,6 @@ func setupSetting() error {
 func main() {
 
 	fmt.Println("Client Test ... start")
-	//3秒之后发起测试请求，给服务端开启服务的机会
-	time.Sleep(3 * time.Second)
 
 	ip := global.ServerSetting.IP
 	port := global.ServerSetting.Port
@@ -50,12 +48,15 @@ func main() {
 		return
 	}
 
-	//data := flow.NewFile("/Users/kiasma/WKspace/msync/testFile")
-	//
-	//src, _ := data.Pack()
-	//for _, v := range src {
-	//	_ = flow.Send(conn, 0, )
-	//}
+	data := flow.NewFile("/Users/kiasma/WKspace/msync/client/bin/go_build_client")
 
-	flow.Send(conn, 0, []byte{})
+	src, _ := data.Pack()
+	for _, v := range src {
+		_ = flow.Send(conn, 1, v)
+		dp := znet.NewDataPack()
+		_ = flow.Catch(conn, *dp)
+	}
+
+	//_ = flow.Send(conn, 0, []byte{})
+
 }
