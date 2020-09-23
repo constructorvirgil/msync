@@ -7,9 +7,6 @@ import (
 	"io/ioutil"
 )
 
-const (
-	MsgIdLogin = iota
-)
 
 //Gzip编码
 func GzipEncode(b []byte) ([]byte, error) {

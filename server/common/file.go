@@ -3,12 +3,12 @@ package common
 import "encoding/json"
 
 type File struct {
-	FileId int
+	FileId []byte
 	FileContent []byte
 }
 
 type filePart struct {
-	FileId       int    `json:"fileId"`
+	FileId       []byte    `json:"fileId"`
 	FileIndex    int    `json:"fileIndex"`
 	FileMaxIndex int    `json:"fileMaxIndex"`
 	PartContent  []byte `json:"partContent"`

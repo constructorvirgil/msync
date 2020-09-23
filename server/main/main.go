@@ -7,6 +7,10 @@ import (
 	"github.com/constructorvirgil/msync/common"
 )
 
+const (
+	MsgIdLogin = iota
+)
+
 //Login 路由
 type LoginRouter struct {
 	znet.BaseRouter
@@ -33,7 +37,7 @@ func main() {
 	s := znet.NewServer()
 
 	//配置路由
-	s.AddRouter(common.MsgIdLogin, &LoginRouter{})
+	s.AddRouter(MsgIdLogin, &LoginRouter{})
 
 	//开启服务
 	s.Serve()
