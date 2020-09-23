@@ -7,7 +7,7 @@ type File struct {
 	FileContent []byte
 }
 
-type filePart struct {
+type FilePart struct {
 	FileId       []byte    `json:"fileId"`
 	FileIndex    int    `json:"fileIndex"`
 	FileMaxIndex int    `json:"fileMaxIndex"`
@@ -31,7 +31,7 @@ func (c *File) Pack() ([][]byte, error){
 		partSize++
 	}
 
-	parts := make([]filePart, partSize) //分成了partSize个包
+	parts := make([]FilePart, partSize) //分成了partSize个包
 
 	for i:=0;i<len(parts);i++{
 		parts[i].FileId = c.FileId
@@ -61,7 +61,7 @@ func (c *File) UnPack(bb [][]byte) error{
 	if len(bb) == 0{
 		return nil
 	}
-	parts := make([]filePart, len(bb))
+	parts := make([]FilePart, len(bb))
 	for i:=0;i<len(bb);i++{
 		err := json.Unmarshal(bb[i], &parts[i])
 		if err != nil {
