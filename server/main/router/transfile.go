@@ -16,7 +16,7 @@ type TransFileRouter struct {
 }
 
 //传输文件回调
-func (this *TransFileRouter) TransFileHandle(request ziface.IRequest) {
+func (this *TransFileRouter) Handle(request ziface.IRequest) {
 	data := request.GetData()
 
 	filePart := common.FilePart{}
@@ -32,7 +32,7 @@ func (this *TransFileRouter) TransFileHandle(request ziface.IRequest) {
 		filemanage.AddAndFlush(string(filePart.FileId), filePart.PartContent)
 	}
 
-	err = request.GetConnection().SendBuffMsg(0, []byte("recv file..."))
+	err = request.GetConnection().SendBuffMsg(MsgIdTransFile, []byte("recv file..."))
 	if err != nil {
 		fmt.Println(err)
 	}

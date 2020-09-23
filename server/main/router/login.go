@@ -13,7 +13,7 @@ type LoginRouter struct {
 }
 
 //Login 回调
-func (this *LoginRouter) LoginHandle(request ziface.IRequest) {
+func (this *LoginRouter) Handle(request ziface.IRequest) {
 	msgLogin := common.MsgLogin{}
 	data := request.GetData()
 	err := msgLogin.UnPack(data)
@@ -22,7 +22,7 @@ func (this *LoginRouter) LoginHandle(request ziface.IRequest) {
 		return
 	}
 
-	err = request.GetConnection().SendBuffMsg(0, []byte("login ok"))
+	err = request.GetConnection().SendBuffMsg(MsgIdLogin, []byte("login ok"))
 	if err != nil {
 		fmt.Println(err)
 	}
