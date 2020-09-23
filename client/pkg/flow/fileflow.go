@@ -14,7 +14,7 @@ func NewFile(fname string) *common.File {
 
 	temp := md5.Sum(data)
 	sum := make([]byte, 16)
-
 	copy(sum, temp[:])
+
 	return &common.File{FileId: sum, FileContent: data}
 }
