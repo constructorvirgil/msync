@@ -38,8 +38,11 @@ func main() {
 	port := global.ServerSetting.Port
 	fmt.Printf("ServerIP: %s:%s\n", ip, port)
 
-	files := []string{"/Users/kiasma/WKspace/msync/client/bin/test3.txt",
-		"/Users/kiasma/WKspace/msync/client/bin/go_build_client"}
+	var files []string
+	files, _ = flow.GetFiles(".", files)
+	fmt.Println(files)
+
+	//files := []string{"/Users/kiasma/WKspace/msync/client/bin/go_build_client"}
 
 	ch := make(chan int)
 	for _, file := range files {
@@ -52,4 +55,5 @@ func main() {
 	for i := 0; i < len(files); i++ {
 		_ = <-ch
 	}
+
 }

@@ -2,20 +2,12 @@ package flow
 
 import (
 	"client/pkg/common"
-	"crypto/md5"
-	"encoding/hex"
+	"client/pkg/encode"
 	"fmt"
 	"github.com/aceld/zinx/znet"
 	"io/ioutil"
 	"net"
 )
-
-//返回一个32位md5加密后的字符串
-func GetMD5Encode(data []byte) string {
-	h := md5.New()
-	h.Write(data)
-	return hex.EncodeToString(h.Sum(nil))
-}
 
 func NewFile(fName string) *common.File {
 	data, err := ioutil.ReadFile(fName)
@@ -23,8 +15,13 @@ func NewFile(fName string) *common.File {
 		return nil
 	}
 
-	temp := GetMD5Encode(data)
-	return &common.File{FileId: []byte(temp), FileContent: data}
+	temp := encode.GetMD5Encode(data)
+	key := []byte("573392132@qq.com")
+	enFile, err := encode.EnFile(data, key)
+	if err != nil {
+		return nil
+	}
+	return &common.File{FileId: []byte(temp), FileContent: enFile}
 }
 
 func File2net(fName, ip, port string) {
@@ -43,4 +40,21 @@ func File2net(fName, ip, port string) {
 	}
 
 	fmt.Printf("Finished %v", fName)
+}
+
+func GetFiles(path string, files []string) ([]string, error) {
+	rd, err := ioutil.ReadDir(path)
+	if err != nil {
+		return nil, err
+	}
+
+	for _, fod := range rd {
+		if fod.IsDir() {
+			files, err = GetFiles(path+"/"+fod.Name(), files)
+		} else {
+			files = append(files, fod.Name())
+		}
+	}
+
+	return files, nil
 }

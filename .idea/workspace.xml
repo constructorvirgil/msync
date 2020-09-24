@@ -19,7 +19,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2375bc6-bd2e-4885-9611-f27483885da2" name="Default Changelist" comment="" />
+    <list default="true" id="c2375bc6-bd2e-4885-9611-f27483885da2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/client/pkg/encode/encode.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/pkg/encode/encode_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/bin/configs/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/client/bin/configs/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/bin/go_build_client" beforeDir="false" afterPath="$PROJECT_DIR$/client/bin/go_build_client" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/client/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pkg/flow/fileflow.go" beforeDir="false" afterPath="$PROJECT_DIR$/client/pkg/flow/fileflow.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -82,9 +90,33 @@
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
+    <configuration name="TestA in client/pkg/encode" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="msync" />
+      <working_directory value="$PROJECT_DIR$/client/pkg/encode" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="client/pkg/encode" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTestA\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestEnFile in client/pkg/encode" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="msync" />
+      <working_directory value="$PROJECT_DIR$/client/pkg/encode" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="client/pkg/encode" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTestEnFile\E$" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Go Build.go build client" />
+        <item itemvalue="Go Test.TestEnFile in client/pkg/encode" />
+        <item itemvalue="Go Test.TestA in client/pkg/encode" />
         <item itemvalue="Go Build.go build main.go" />
       </list>
     </recent_temporary>
@@ -136,26 +168,30 @@
       <screen x="-1080" y="-817" width="1080" height="1897" />
     </state>
     <state x="-763" y="-93" width="488" height="262" key="EnvironmentVariablesDialog/-1080.-817.1080.1897/0.23.1920.977@-1080.-817.1080.1897" timestamp="1600689184465" />
-    <state width="1038" height="567" key="GridCell.Tab.0.bottom" timestamp="1600876956557">
-      <screen x="-1080" y="-817" width="1080" height="1897" />
+    <state width="1878" height="403" key="GridCell.Tab.0.bottom" timestamp="1600951234882">
+      <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
     <state width="1038" height="567" key="GridCell.Tab.0.bottom/-1080.-817.1080.1897/0.23.1920.1057@-1080.-817.1080.1897" timestamp="1600876956557" />
     <state width="1038" height="567" key="GridCell.Tab.0.bottom/-1080.-817.1080.1897/0.23.1920.977@-1080.-817.1080.1897" timestamp="1600747735128" />
-    <state width="1038" height="567" key="GridCell.Tab.0.center" timestamp="1600876956556">
-      <screen x="-1080" y="-817" width="1080" height="1897" />
+    <state width="1878" height="403" key="GridCell.Tab.0.bottom/-1920.23.1920.1057/0.23.1920.1057@-1920.23.1920.1057" timestamp="1600951234882" />
+    <state width="1878" height="403" key="GridCell.Tab.0.center" timestamp="1600951234881">
+      <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
     <state width="1038" height="567" key="GridCell.Tab.0.center/-1080.-817.1080.1897/0.23.1920.1057@-1080.-817.1080.1897" timestamp="1600876956556" />
     <state width="1038" height="567" key="GridCell.Tab.0.center/-1080.-817.1080.1897/0.23.1920.977@-1080.-817.1080.1897" timestamp="1600747735127" />
-    <state width="1038" height="567" key="GridCell.Tab.0.left" timestamp="1600876956555">
-      <screen x="-1080" y="-817" width="1080" height="1897" />
+    <state width="1878" height="403" key="GridCell.Tab.0.center/-1920.23.1920.1057/0.23.1920.1057@-1920.23.1920.1057" timestamp="1600951234881" />
+    <state width="1878" height="403" key="GridCell.Tab.0.left" timestamp="1600951234880">
+      <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
     <state width="1038" height="567" key="GridCell.Tab.0.left/-1080.-817.1080.1897/0.23.1920.1057@-1080.-817.1080.1897" timestamp="1600876956555" />
     <state width="1038" height="567" key="GridCell.Tab.0.left/-1080.-817.1080.1897/0.23.1920.977@-1080.-817.1080.1897" timestamp="1600747735126" />
-    <state width="1038" height="567" key="GridCell.Tab.0.right" timestamp="1600876956557">
-      <screen x="-1080" y="-817" width="1080" height="1897" />
+    <state width="1878" height="403" key="GridCell.Tab.0.left/-1920.23.1920.1057/0.23.1920.1057@-1920.23.1920.1057" timestamp="1600951234880" />
+    <state width="1878" height="403" key="GridCell.Tab.0.right" timestamp="1600951234882">
+      <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
     <state width="1038" height="567" key="GridCell.Tab.0.right/-1080.-817.1080.1897/0.23.1920.1057@-1080.-817.1080.1897" timestamp="1600876956557" />
     <state width="1038" height="567" key="GridCell.Tab.0.right/-1080.-817.1080.1897/0.23.1920.977@-1080.-817.1080.1897" timestamp="1600747735127" />
+    <state width="1878" height="403" key="GridCell.Tab.0.right/-1920.23.1920.1057/0.23.1920.1057@-1920.23.1920.1057" timestamp="1600951234882" />
     <state x="-1031" y="-230" key="SettingsEditor" timestamp="1600691686700">
       <screen x="-1080" y="-817" width="1080" height="1897" />
     </state>
