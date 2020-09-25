@@ -20,20 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2375bc6-bd2e-4885-9611-f27483885da2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/common/aes.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/client/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pkg/common/common.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pkg/common/common_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pkg/common/file.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pkg/common/login.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pkg/flow/fileflow.go" beforeDir="false" afterPath="$PROJECT_DIR$/client/pkg/flow/fileflow.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/common/common.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/common/common_test.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/common/file.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/common/login.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/server/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/testFile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pkg/encode/encode.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pkg/encode/encode_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/encode_test.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +37,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="C:\Go" />
+  <component name="GOROOT" path="/usr/local/go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -72,16 +62,17 @@
     <property name="go.sdk.automatically.set" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/client/bin" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="com.goide.configuration.GoLibrariesConfigurableProvider" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/client/bin" />
-      <recent name="$PROJECT_DIR$/client" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/client/bin" />
       <recent name="$PROJECT_DIR$/client/pkg" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/common" />
+      <recent name="$PROJECT_DIR$/client/bin" />
+      <recent name="$PROJECT_DIR$/client" />
     </key>
   </component>
   <component name="RunManager" selected="Go Build.go build client">
@@ -133,9 +124,9 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -158,9 +149,10 @@
     </environment>
   </component>
   <component name="WindowStateProjectService">
-    <state x="561" y="342" key="#GOROOT" timestamp="1600995027546">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="-1219" y="462" key="#GOROOT" timestamp="1600996453203">
+      <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
+    <state x="-1219" y="462" key="#GOROOT/-1920.23.1920.1057/0.23.1920.1057@-1920.23.1920.1057" timestamp="1600996453203" />
     <state x="561" y="342" key="#GOROOT/0.0.1536.824@0.0.1536.824" timestamp="1600995027546" />
     <state x="-1071" y="-178" width="1071" height="772" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600700773904">
       <screen x="-1080" y="-817" width="1080" height="1897" />
@@ -216,10 +208,11 @@
     <state width="1038" height="567" key="GridCell.Tab.0.right/-1080.-817.1080.1897/0.23.1920.977@-1080.-817.1080.1897" timestamp="1600747735127" />
     <state width="1878" height="403" key="GridCell.Tab.0.right/-1920.23.1920.1057/0.23.1920.1057@-1920.23.1920.1057" timestamp="1600951234882" />
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1600995835067" />
-    <state x="350" y="94" key="SettingsEditor" timestamp="1600995170635">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="-1482" y="144" key="SettingsEditor" timestamp="1600996704423">
+      <screen x="-1920" y="23" width="1920" height="1057" />
     </state>
     <state x="-1031" y="-230" key="SettingsEditor/-1080.-817.1080.1897/0.23.1920.977@-1080.-817.1080.1897" timestamp="1600691686700" />
+    <state x="-1482" y="144" key="SettingsEditor/-1920.23.1920.1057/0.23.1920.1057@-1920.23.1920.1057" timestamp="1600996704423" />
     <state x="350" y="94" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1600995170635" />
     <state x="-1081" y="-801" width="1108" height="1871" maximized="true" key="dock-window-1" timestamp="1600837160093">
       <screen x="-1080" y="-817" width="1080" height="1897" />
