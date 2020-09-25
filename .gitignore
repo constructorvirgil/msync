@@ -1,3 +1,6 @@
 server/msync_linux
 server/mylog/*.log
 client/bin
+client/.DS_Store
+*.exe
+.DS_Store

@@ -1,10 +1,10 @@
 package flow
 
 import (
-	"client/pkg/common"
 	"client/pkg/encode"
 	"fmt"
 	"github.com/aceld/zinx/znet"
+	"github.com/constructorvirgil/msync/common"
 	"io/ioutil"
 	"net"
 )

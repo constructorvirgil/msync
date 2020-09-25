@@ -1,45 +1,67 @@
 package filemanage
 
 import (
-	"fmt"
 	"io/ioutil"
-	"sync"
 )
 
-type data struct {
-	content []byte
+type FilePart struct {
+	Index    int
+	MaxIndex int
+	Id       string
+	Part     []byte
 }
 
-var globalMap = map[string]*data{}
-var globalMutex = sync.Mutex{}
+type File struct {
+	FileName string
+	Content  []byte
+}
 
-//把数据添加到map
-func Add(id string, cont []byte) {
-	globalMutex.Lock()
-	defer globalMutex.Unlock()
+var fileCh chan File
+var partCh chan FilePart
 
-	if globalMap[id] == nil {
-		globalMap[id] = &data{}
+func Init() {
+	go addWorker(partCh, fileCh) //添加部分文件内容到map，只能有一个worker
+	for i := 0; i < 16; i++ {    //写文件，可以有多个worker
+		go writeWorker(fileCh)
 	}
-	globalMap[id].content = append(globalMap[id].content, cont...)
 }
 
-//把数据添加到map并写入文件，然后清空该id的map数据
-func AddAndFlush(id string, cont []byte) {
-	Add(id, cont)
-	ch := make(chan int)
-	go func(ch chan int) { //把该数据写入文件
-		_ = <-ch //等待切片添加完毕
-		_ = ioutil.WriteFile(fmt.Sprintf("filemanage-id%s", id), globalMap[id].content, 0644)
-		Clear(id)
-	}(ch)
-	ch <- 0
+//负责添加部分文件内容到map
+func addWorker(partCh chan FilePart, fileCh chan File) {
+	m := map[string]*File{}
+
+	for v := range partCh {
+		if m[v.Id] == nil { //在map中无记录
+			m[v.Id] = &File{
+				FileName: "file-" + v.Id,
+				Content:  v.Part,
+			}
+		} else {              //在map有记录
+			if v.Index == 0 { //Index等于0说明文件是重新传输的，而map有记录说明上一次传输没有正常结束，丢弃上一次的结果，然后重新开始
+				m[v.Id] = &File{
+					FileName: "file-" + v.Id,
+					Content:  v.Part,
+				}
+				continue
+			}
+			m[v.Id].Content = append(m[v.Id].Content, v.Part...)
+			if v.Index == v.MaxIndex { //文件的最后一部分已到达
+				fileCh <- *m[v.Id]
+				m[v.Id] = nil
+			}
+		}
+	}
+
 }
 
-//清空指定id的map数据
-func Clear(id string) {
-	globalMutex.Lock()
-	defer globalMutex.Unlock()
+//负责写入文件到磁盘
+func writeWorker(fileCh chan File) {
+	for v := range fileCh {
+		_ = ioutil.WriteFile(v.FileName, v.Content, 0644)
+	}
+}
 
-	globalMap[id] = nil
+//给外部调用的接口，添加部分文件内容
+func Add(part FilePart) {
+	partCh <- part
 }
