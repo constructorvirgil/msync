@@ -2,8 +2,8 @@ package main
 
 import (
 	"github.com/aceld/zinx/znet"
-	"github.com/constructorvirgil/msync/main/filemanage"
-	"github.com/constructorvirgil/msync/main/router"
+	"github.com/constructorvirgil/msync/server/main/filemanage"
+	"github.com/constructorvirgil/msync/server/main/router"
 )
 
 func main() {

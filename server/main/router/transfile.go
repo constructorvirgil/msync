@@ -6,7 +6,7 @@ import (
 	"github.com/aceld/zinx/ziface"
 	"github.com/aceld/zinx/znet"
 	"github.com/constructorvirgil/msync/common"
-	"github.com/constructorvirgil/msync/main/filemanage"
+	"github.com/constructorvirgil/msync/server/main/filemanage"
 )
 
 
