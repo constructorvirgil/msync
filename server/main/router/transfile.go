@@ -26,12 +26,13 @@ func (this *TransFileRouter) Handle(request ziface.IRequest) {
 		return
 	}
 
-	fmt.Printf("id=%s|index=%d|maxIndex=%d|length of cont=%d, pack recv...\n", string(filePart.FileId), filePart.FileIndex, filePart.FileMaxIndex, len(filePart.PartContent))
-	if filePart.FileIndex != filePart.FileMaxIndex {
-		filemanage.Add(string(filePart.FileId), filePart.PartContent)
-	}else{
-		filemanage.AddAndFlush(string(filePart.FileId), filePart.PartContent)
-	}
+	//fmt.Printf("id=%s|index=%d|maxIndex=%d|length of cont=%d, pack recv...\n", string(filePart.FileId), filePart.FileIndex, filePart.FileMaxIndex, len(filePart.PartContent))
+	filemanage.Add(filemanage.FilePart{
+		Id:       string(filePart.FileId),
+		Index:    filePart.FileIndex,
+		MaxIndex: filePart.FileMaxIndex,
+		Part:     filePart.PartContent,
+	})
 
 	err = request.GetConnection().SendBuffMsg(MsgIdTransFile, []byte("recv file..."))
 	if err != nil {

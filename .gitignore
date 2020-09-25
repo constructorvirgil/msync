@@ -1,3 +1,4 @@
 server/msync_linux
 server/mylog/*.log
 client/bin
+*.exe
