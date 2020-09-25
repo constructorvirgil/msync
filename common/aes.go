@@ -1,4 +1,4 @@
-package encode
+package common
 
 import (
 	"bytes"
@@ -15,7 +15,7 @@ func GetMD5Encode(data []byte) string {
 	return hex.EncodeToString(h.Sum(nil))
 }
 
-func EnFile(data, key []byte) ([]byte, error) {
+func EnPack(data, key []byte) ([]byte, error) {
 	EncodeData, err := aesEncrypt(data, key)
 	if err != nil {
 		return nil, err
@@ -23,7 +23,7 @@ func EnFile(data, key []byte) ([]byte, error) {
 	return EncodeData, nil
 }
 
-func DeFile(data, key []byte) ([]byte, error) {
+func DePack(data, key []byte) ([]byte, error) {
 	DecodeData, err := aesDecrypt(data, key)
 	if err != nil {
 		return nil, err

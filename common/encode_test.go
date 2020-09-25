@@ -1,4 +1,4 @@
-package encode
+package common
 
 import (
 	"io/ioutil"

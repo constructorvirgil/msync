@@ -12,15 +12,20 @@ import (
 func NewFile(fName string) *common.File {
 	data, err := ioutil.ReadFile(fName)
 	if err != nil {
+		fmt.Printf("Can't find file name: %v err: %v", fName, err)
 		return nil
 	}
 
+	fmt.Println("read file: ", len(data))
 	temp := encode.GetMD5Encode(data)
+	fmt.Println("file md5: ", temp)
 	key := []byte("573392132@qq.com")
 	enFile, err := encode.EnFile(data, key)
 	if err != nil {
+		fmt.Printf("Encoding file %v failed err:%v", fName, err)
 		return nil
 	}
+	fmt.Println("encode file content: ", len(enFile))
 	return &common.File{FileId: []byte(temp), FileContent: enFile}
 }
 
@@ -31,6 +36,9 @@ func File2net(fName, ip, port string) {
 		return
 	}
 	data := NewFile(fName)
+	if data == nil {
+		return
+	}
 
 	src, _ := data.Pack()
 	for _, v := range src {
@@ -39,7 +47,7 @@ func File2net(fName, ip, port string) {
 		_ = Catch(conn, *dp)
 	}
 
-	fmt.Printf("Finished %v", fName)
+	fmt.Printf("Finished %v\n\n", fName)
 }
 
 func GetFiles(path string, files []string) ([]string, error) {
@@ -52,7 +60,7 @@ func GetFiles(path string, files []string) ([]string, error) {
 		if fod.IsDir() {
 			files, err = GetFiles(path+"/"+fod.Name(), files)
 		} else {
-			files = append(files, fod.Name())
+			files = append(files, path+"/"+fod.Name())
 		}
 	}
 
