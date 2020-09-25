@@ -17,16 +17,17 @@ type TransFileRouter struct {
 
 //传输文件回调
 func (this *TransFileRouter) Handle(request ziface.IRequest) {
+	var err error
 	data := request.GetData()
 
 	filePart := common.FilePart{}
-	err := json.Unmarshal(data, &filePart)
+	err = json.Unmarshal(data, &filePart)
 	if err != nil {
 		fmt.Println("json unmarshal failure: ", err)
 		return
 	}
 
-	//fmt.Printf("id=%s|index=%d|maxIndex=%d|length of cont=%d, pack recv...\n", string(filePart.FileId), filePart.FileIndex, filePart.FileMaxIndex, len(filePart.PartContent))
+	fmt.Printf("id=%s|index=%d|maxIndex=%d|length of cont=%d, pack recv...\n", string(filePart.FileId), filePart.FileIndex, filePart.FileMaxIndex, len(filePart.PartContent))
 	filemanage.Add(filemanage.FilePart{
 		Id:       string(filePart.FileId),
 		Index:    filePart.FileIndex,

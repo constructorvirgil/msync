@@ -1,7 +1,6 @@
 package flow
 
 import (
-	"client/pkg/encode"
 	"fmt"
 	"github.com/aceld/zinx/znet"
 	"github.com/constructorvirgil/msync/common"
@@ -17,10 +16,10 @@ func NewFile(fName string) *common.File {
 	}
 
 	fmt.Println("read file: ", len(data))
-	temp := encode.GetMD5Encode(data)
+	temp := common.GetMD5Encode(data)
 	fmt.Println("file md5: ", temp)
 	key := []byte("573392132@qq.com")
-	enFile, err := encode.EnFile(data, key)
+	enFile, err := common.EnPack(data, key)
 	if err != nil {
 		fmt.Printf("Encoding file %v failed err:%v", fName, err)
 		return nil
