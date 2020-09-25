@@ -42,7 +42,7 @@ func Catch(conn net.Conn, dp znet.DataPack) error {
 			return err
 		}
 
-		fmt.Println("==> Recv Msg: ID=", msg.Id, ", len=", msg.DataLen, ", data=", string(msg.Data))
+		//fmt.Println("==> Recv Msg: ID=", msg.Id, ", len=", msg.DataLen, ", data=", string(msg.Data))
 	}
 
 	return nil
