@@ -55,7 +55,7 @@ func File2net(fName, ip, port string) {
 		encodePack = append(encodePack, i)
 	}
 
-	for _, v := range src {
+	for _, v := range encodePack {
 		_ = Send(conn, 1, v)
 		dp := znet.NewDataPack()
 		_ = Catch(conn, *dp)

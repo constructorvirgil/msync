@@ -7,6 +7,7 @@ import (
 	"github.com/aceld/zinx/znet"
 	"github.com/constructorvirgil/msync/common"
 	"github.com/constructorvirgil/msync/server/main/filemanage"
+	"github.com/constructorvirgil/msync/server/main/global"
 )
 
 
@@ -20,7 +21,14 @@ func (this *TransFileRouter) Handle(request ziface.IRequest) {
 	var err error
 	data := request.GetData()
 
-	//这里需要解密data, 待添加
+	//AES  解密得到明文
+	//fmt.Printf("data=%v|aeskey=%v\n", string(data), string(global.AESKey))  //打印密文
+	data, err = common.AESDecode(data, global.AESKey)
+	if err != nil {
+		fmt.Println("aes decode failure: ", err)
+		return
+	}
+	//fmt.Println("data after decode: ", string(data))  //解密之后得到的明文
 
 	filePart := common.FilePart{}
 	err = json.Unmarshal(data, &filePart)

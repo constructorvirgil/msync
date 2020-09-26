@@ -6,7 +6,13 @@ import (
 	"crypto/cipher"
 	"crypto/md5"
 	"encoding/hex"
-	"fmt"
+	"errors"
+)
+
+//error code
+var (
+	ErrCodeAESEncodeFail = errors.New("aes encode error")
+	ErrCodeAESDecodeFail = errors.New("aes decode error")
 )
 
 //返回一个32位md5加密后的字符串
@@ -16,20 +22,34 @@ func GetMD5Encode(data []byte) string {
 	return hex.EncodeToString(h.Sum(nil))
 }
 
-func AESEncode(data []byte, key []byte) ([]byte, error) {
-	encodePack, err := aesEncrypt(data, key)
+func AESEncode(data []byte, key []byte) (encodePack []byte, err error) {
+	//避免panic程序崩溃
+	defer func(){
+		if recErr:=recover();recErr!=nil{
+			encodePack = nil
+			err = ErrCodeAESEncodeFail
+		}
+	}()
+
+	encodePack, err = aesEncrypt(data, key)
 	if err != nil {
-		fmt.Println(err)
 		return nil, err
 	}
 
 	return encodePack, nil
 }
 
-func AESDecode(data []byte, key []byte) ([]byte, error) {
-	decodePack, err := aesDecrypt(data, key)
+func AESDecode(data []byte, key []byte) (decodePack []byte, err error) {
+	//避免panic程序崩溃
+	defer func(){
+		if recErr:=recover();recErr!=nil{
+			decodePack = nil
+			err = ErrCodeAESDecodeFail
+		}
+	}()
+
+	decodePack, err = aesDecrypt(data, key)
 	if err != nil {
-		fmt.Println(err)
 		return nil, err
 	}
 
