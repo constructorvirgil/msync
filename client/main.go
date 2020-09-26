@@ -42,17 +42,17 @@ func main() {
 	files, _ = flow.GetFiles(".", files)
 	fmt.Println(files)
 
-	//ch := make(chan int)
+	ch := make(chan int)
 	for _, file := range files {
-		//go func(file string, ch chan int) {
-		fmt.Println("in go routine file name: ", file)
-		flow.File2net(file, ip, port)
-		//ch <- 0
-		//}(file, ch)
+		go func(file string, ch chan int) {
+			fmt.Println("in go routine file name: ", file)
+			flow.File2net(file, ip, port)
+			ch <- 0
+		}(file, ch)
 	}
 
-	//for i := 0; i < len(files); i++ {
-	//	_ = <-ch
-	//}
+	for i := 0; i < len(files); i++ {
+		_ = <-ch
+	}
 
 }
