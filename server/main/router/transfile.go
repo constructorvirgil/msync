@@ -20,6 +20,8 @@ func (this *TransFileRouter) Handle(request ziface.IRequest) {
 	var err error
 	data := request.GetData()
 
+	//这里需要解密data, 待添加
+
 	filePart := common.FilePart{}
 	err = json.Unmarshal(data, &filePart)
 	if err != nil {

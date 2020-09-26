@@ -4,3 +4,4 @@ client/bin
 client/.DS_Store
 *.exe
 .DS_Store
+server/aeskey.txt
