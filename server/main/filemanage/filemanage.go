@@ -16,8 +16,8 @@ type File struct {
 	Content  []byte
 }
 
-var fileCh chan File
-var partCh chan FilePart
+var fileCh = make(chan File)
+var partCh = make(chan FilePart)
 
 func Init() {
 	go addWorker(partCh, fileCh) //添加部分文件内容到map，只能有一个worker
@@ -29,10 +29,9 @@ func Init() {
 //负责添加部分文件内容到map
 func addWorker(partCh chan FilePart, fileCh chan File) {
 	m := map[string]*File{}
-
-	for v := range partCh {
+	for v := range (partCh) {
 		if m[v.Id] == nil { //在map中无记录
-			m[v.Id] = &File{
+			m[v.Id] = &File {
 				FileName: "file-" + v.Id,
 				Content:  v.Part,
 			}
@@ -42,13 +41,13 @@ func addWorker(partCh chan FilePart, fileCh chan File) {
 					FileName: "file-" + v.Id,
 					Content:  v.Part,
 				}
-				continue
+			}else {
+				m[v.Id].Content = append(m[v.Id].Content, v.Part...)
 			}
-			m[v.Id].Content = append(m[v.Id].Content, v.Part...)
-			if v.Index == v.MaxIndex { //文件的最后一部分已到达
-				fileCh <- *m[v.Id]
-				m[v.Id] = nil
-			}
+		}
+		if v.Index == v.MaxIndex { //文件的最后一部分已到达
+			fileCh <- *m[v.Id]
+			m[v.Id] = nil
 		}
 	}
 
@@ -56,7 +55,7 @@ func addWorker(partCh chan FilePart, fileCh chan File) {
 
 //负责写入文件到磁盘
 func writeWorker(fileCh chan File) {
-	for v := range fileCh {
+	for v := range (fileCh) {
 		_ = ioutil.WriteFile(v.FileName, v.Content, 0644)
 	}
 }
