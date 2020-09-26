@@ -5,3 +5,4 @@ client/.DS_Store
 *.exe
 .DS_Store
 server/aeskey.txt
+client/bin/go_build_client

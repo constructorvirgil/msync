@@ -16,34 +16,24 @@ func GetMD5Encode(data []byte) string {
 	return hex.EncodeToString(h.Sum(nil))
 }
 
-func EnPack(data [][]byte, key []byte) ([][]byte, error) {
-	var enPack [][]byte
-
-	for _, i := range data {
-		encodei, err := aesEncrypt(i, key)
-		if err != nil {
-			fmt.Println(err)
-			return nil, err
-		}
-		enPack = append(enPack, encodei)
+func AESEncode(data []byte, key []byte) ([]byte, error) {
+	encodePack, err := aesEncrypt(data, key)
+	if err != nil {
+		fmt.Println(err)
+		return nil, err
 	}
 
-	return enPack, nil
+	return encodePack, nil
 }
 
-func DePack(data [][]byte, key []byte) ([][]byte, error) {
-	var dePack [][]byte
-
-	for _, i := range data {
-		decodei, err := aesDecrypt(i, key)
-		if err != nil {
-			fmt.Println(err)
-			return nil, err
-		}
-		dePack = append(dePack, decodei)
+func AESDecode(data []byte, key []byte) ([]byte, error) {
+	decodePack, err := aesDecrypt(data, key)
+	if err != nil {
+		fmt.Println(err)
+		return nil, err
 	}
 
-	return dePack, nil
+	return decodePack, nil
 }
 
 func aesEncrypt(origData, key []byte) ([]byte, error) {

@@ -41,14 +41,19 @@ func File2net(fName, ip, port string) {
 		return
 	}
 
-	//key := []byte("573392132@qq.com")
+	key := []byte("msync2020GOAHEAD")
 
 	src, _ := data.Pack()
-	//enPack, err := common.EnPack(src, key)
-	//if err != nil {
-	//	fmt.Println(err)
-	//	return
-	//}
+	var encodePack [][]byte
+
+	for _, pack := range src {
+		i, err := common.AESEncode(pack, key)
+		if err != nil {
+			fmt.Println("AESEncode ERROR:", err)
+			return
+		}
+		encodePack = append(encodePack, i)
+	}
 
 	for _, v := range src {
 		_ = Send(conn, 1, v)
