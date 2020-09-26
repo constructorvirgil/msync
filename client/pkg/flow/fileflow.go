@@ -1,6 +1,7 @@
 package flow
 
 import (
+	"client/pkg/key"
 	"fmt"
 	"github.com/aceld/zinx/znet"
 	"github.com/constructorvirgil/msync/common"
@@ -19,10 +20,6 @@ func NewFile(fName string) *common.File {
 	temp := common.GetMD5Encode(data)
 	fmt.Println("file md5: ", temp)
 
-	if err != nil {
-		fmt.Printf("Encoding file %v failed err:%v", fName, err)
-		return nil
-	}
 	fmt.Println("encode file content: ", len(data))
 	return &common.File{FileId: []byte(temp), FileContent: data}
 }
@@ -41,13 +38,13 @@ func File2net(fName, ip, port string) {
 		return
 	}
 
-	key := []byte("msync2020GOAHEAD")
+	aesKey := key.GetKey()
 
 	src, _ := data.Pack()
 	var encodePack [][]byte
 
 	for _, pack := range src {
-		i, err := common.AESEncode(pack, key)
+		i, err := common.AESEncode(pack, aesKey)
 		if err != nil {
 			fmt.Println("AESEncode ERROR:", err)
 			return

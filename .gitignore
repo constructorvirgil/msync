@@ -6,3 +6,4 @@ client/.DS_Store
 .DS_Store
 server/aeskey.txt
 client/bin/go_build_client
+client/pkg/key/key.go

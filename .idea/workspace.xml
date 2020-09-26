@@ -20,12 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2375bc6-bd2e-4885-9611-f27483885da2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/client/pkg/key/key.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/bin/configs/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/client/bin/configs/config.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/bin/go_build_client" beforeDir="false" afterPath="$PROJECT_DIR$/client/bin/go_build_client" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/client/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/pkg/flow/fileflow.go" beforeDir="false" afterPath="$PROJECT_DIR$/client/pkg/flow/fileflow.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/aes.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/aes.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
