@@ -6,6 +6,7 @@ import (
 	"crypto/cipher"
 	"crypto/md5"
 	"encoding/hex"
+	"fmt"
 )
 
 //返回一个32位md5加密后的字符串
@@ -15,20 +16,34 @@ func GetMD5Encode(data []byte) string {
 	return hex.EncodeToString(h.Sum(nil))
 }
 
-func EnPack(data, key []byte) ([]byte, error) {
-	EncodeData, err := aesEncrypt(data, key)
-	if err != nil {
-		return nil, err
+func EnPack(data [][]byte, key []byte) ([][]byte, error) {
+	var enPack [][]byte
+
+	for _, i := range data {
+		encodei, err := aesEncrypt(i, key)
+		if err != nil {
+			fmt.Println(err)
+			return nil, err
+		}
+		enPack = append(enPack, encodei)
 	}
-	return EncodeData, nil
+
+	return enPack, nil
 }
 
-func DePack(data, key []byte) ([]byte, error) {
-	DecodeData, err := aesDecrypt(data, key)
-	if err != nil {
-		return nil, err
+func DePack(data [][]byte, key []byte) ([][]byte, error) {
+	var dePack [][]byte
+
+	for _, i := range data {
+		decodei, err := aesDecrypt(i, key)
+		if err != nil {
+			fmt.Println(err)
+			return nil, err
+		}
+		dePack = append(dePack, decodei)
 	}
-	return DecodeData, nil
+
+	return dePack, nil
 }
 
 func aesEncrypt(origData, key []byte) ([]byte, error) {

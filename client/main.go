@@ -42,8 +42,6 @@ func main() {
 	files, _ = flow.GetFiles(".", files)
 	fmt.Println(files)
 
-	//files := []string{"/Users/kiasma/WKspace/msync/client/bin/go_build_client"}
-
 	//ch := make(chan int)
 	for _, file := range files {
 		//go func(file string, ch chan int) {

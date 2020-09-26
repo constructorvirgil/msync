@@ -18,28 +18,38 @@ func NewFile(fName string) *common.File {
 	fmt.Println("read file: ", len(data))
 	temp := common.GetMD5Encode(data)
 	fmt.Println("file md5: ", temp)
-	key := []byte("573392132@qq.com")
-	enFile, err := common.EnPack(data, key)
+
 	if err != nil {
 		fmt.Printf("Encoding file %v failed err:%v", fName, err)
 		return nil
 	}
-	fmt.Println("encode file content: ", len(enFile))
-	return &common.File{FileId: []byte(temp), FileContent: enFile}
+	fmt.Println("encode file content: ", len(data))
+	return &common.File{FileId: []byte(temp), FileContent: data}
 }
 
 func File2net(fName, ip, port string) {
 	conn, err := net.Dial("tcp", ip+":"+port)
+
 	if err != nil {
 		fmt.Println("client start err, exit!")
 		return
 	}
+	defer conn.Close()
+
 	data := NewFile(fName)
 	if data == nil {
 		return
 	}
 
+	//key := []byte("573392132@qq.com")
+
 	src, _ := data.Pack()
+	//enPack, err := common.EnPack(src, key)
+	//if err != nil {
+	//	fmt.Println(err)
+	//	return
+	//}
+
 	for _, v := range src {
 		_ = Send(conn, 1, v)
 		dp := znet.NewDataPack()
