@@ -20,8 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a5650b1-09d4-4e1c-8bc9-88aa21d8ee39" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../common/response.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/main/router/response.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/main/filemanage/filemanage.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/main/filemanage/filemanage.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/main/router/defs.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/main/router/defs.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/main/router/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/main/router/login.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/main/router/transfile.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/main/router/transfile.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

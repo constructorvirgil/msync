@@ -26,6 +26,7 @@ func (this *TransFileRouter) Handle(request ziface.IRequest) {
 	data, err = common.AESDecode(data, global.AESKey)
 	if err != nil {
 		fmt.Println("aes decode failure: ", err)
+		_ = Response(request, MsgIdTransFile, RespCodeDecodeError, "decode message error")
 		return
 	}
 	//fmt.Println("data after decode: ", string(data))  //解密之后得到的明文
@@ -34,6 +35,7 @@ func (this *TransFileRouter) Handle(request ziface.IRequest) {
 	err = json.Unmarshal(data, &filePart)
 	if err != nil {
 		fmt.Println("json unmarshal failure: ", err)
+		_ = Response(request, MsgIdTransFile, RespCodeDecodeError, "decode message error")
 		return
 	}
 
@@ -46,8 +48,5 @@ func (this *TransFileRouter) Handle(request ziface.IRequest) {
 		Part:     filePart.PartContent,
 	})
 
-	err = request.GetConnection().SendBuffMsg(MsgIdTransFile, []byte("recv file..."))
-	if err != nil {
-		fmt.Println(err)
-	}
+	_ = Response(request, MsgIdTransFile, RespCodeOK, "recv file part ok")
 }

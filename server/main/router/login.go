@@ -19,11 +19,9 @@ func (this *LoginRouter) Handle(request ziface.IRequest) {
 	err := msgLogin.UnPack(data)
 	if err != nil{
 		fmt.Println("unpack failure: ", string(data))
+		_ = Response(request, MsgIdLogin, RespCodeDecodeError, "decode message error")
 		return
 	}
 
-	err = request.GetConnection().SendBuffMsg(MsgIdLogin, []byte("login ok"))
-	if err != nil {
-		fmt.Println(err)
-	}
+	_ = Response(request, MsgIdLogin, RespCodeOK, "login ok")
 }
