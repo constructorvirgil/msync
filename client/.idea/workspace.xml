@@ -21,9 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="2a5650b1-09d4-4e1c-8bc9-88aa21d8ee39" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/flow/fileflow.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/flow/fileflow.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../common/aes.go" beforeDir="false" afterPath="$PROJECT_DIR$/../common/aes.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/main/router/transfile.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/main/router/transfile.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../common/file.go" beforeDir="false" afterPath="$PROJECT_DIR$/../common/file.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
