@@ -21,7 +21,7 @@ func NewFile(fName string) *common.File {
 	fmt.Println("file md5: ", temp)
 
 	fmt.Println("encode file content: ", len(data))
-	return &common.File{FileId: []byte(temp), FileContent: data}
+	return &common.File{FileId: []byte(temp), Path: fName, FileContent: data}
 }
 
 func File2net(fName, ip, port string) {
