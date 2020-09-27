@@ -1,6 +1,7 @@
 package filemanage
 
 import (
+	"fmt"
 	"io/ioutil"
 	"os"
 	"path"
@@ -28,7 +29,6 @@ var fileCh = make(chan File)
 var partCh = make(chan FilePart)
 
 func Init() {
-	_ = os.Mkdir(StorePrefix, 0644)  //确保存储文件的目录是存在的
 	go addWorker(partCh, fileCh) //添加部分文件内容到map，只能有一个worker
 	for i := 0; i < 16; i++ {    //写文件，可以有多个worker
 		go writeWorker(fileCh)
@@ -66,9 +66,19 @@ func addWorker(partCh chan FilePart, fileCh chan File) {
 
 //负责写入文件到磁盘
 func writeWorker(fileCh chan File) {
+	var err error
 	for v := range (fileCh) {
-		path := path.Join(StorePrefix, v.Path, v.FileName)
-		_ = ioutil.WriteFile(path, v.Content, 0644)
+		dir := path.Join(StorePrefix, v.Path)
+		err = os.MkdirAll(dir, 0644)
+		if err != nil {
+			fmt.Println("mkdirall failure: ", err)
+			continue
+		}
+		err = ioutil.WriteFile(path.Join(dir, v.FileName), v.Content, 0644)
+		if err != nil {
+			fmt.Printf("write to file failure: dir=%s|fileName=%s\n", dir, v.FileName)
+			continue
+		}
 	}
 }
 
