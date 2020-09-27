@@ -42,6 +42,7 @@ func (this *TransFileRouter) Handle(request ziface.IRequest) {
 		Id:       string(filePart.FileId),
 		Index:    filePart.FileIndex,
 		MaxIndex: filePart.FileMaxIndex,
+		Path:     filePart.Path,
 		Part:     filePart.PartContent,
 	})
 

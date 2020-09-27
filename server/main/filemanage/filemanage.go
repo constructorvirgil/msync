@@ -2,17 +2,25 @@ package filemanage
 
 import (
 	"io/ioutil"
+	"os"
+	"path"
+)
+
+const (
+	StorePrefix = "store"
 )
 
 type FilePart struct {
 	Index    int
 	MaxIndex int
 	Id       string
+	Path     string
 	Part     []byte
 }
 
 type File struct {
 	FileName string
+	Path     string
 	Content  []byte
 }
 
@@ -20,6 +28,7 @@ var fileCh = make(chan File)
 var partCh = make(chan FilePart)
 
 func Init() {
+	_ = os.Mkdir(StorePrefix, 0644)  //确保存储文件的目录是存在的
 	go addWorker(partCh, fileCh) //添加部分文件内容到map，只能有一个worker
 	for i := 0; i < 16; i++ {    //写文件，可以有多个worker
 		go writeWorker(fileCh)
@@ -33,12 +42,14 @@ func addWorker(partCh chan FilePart, fileCh chan File) {
 		if m[v.Id] == nil { //在map中无记录
 			m[v.Id] = &File {
 				FileName: "file-" + v.Id,
+				Path: v.Path,
 				Content:  v.Part,
 			}
 		} else {              //在map有记录
 			if v.Index == 0 { //Index等于0说明文件是重新传输的，而map有记录说明上一次传输没有正常结束，丢弃上一次的结果，然后重新开始
 				m[v.Id] = &File{
 					FileName: "file-" + v.Id,
+					Path: v.Path,
 					Content:  v.Part,
 				}
 			}else {
@@ -56,7 +67,8 @@ func addWorker(partCh chan FilePart, fileCh chan File) {
 //负责写入文件到磁盘
 func writeWorker(fileCh chan File) {
 	for v := range (fileCh) {
-		_ = ioutil.WriteFile(v.FileName, v.Content, 0644)
+		path := path.Join(StorePrefix, v.Path, v.FileName)
+		_ = ioutil.WriteFile(path, v.Content, 0644)
 	}
 }
 
