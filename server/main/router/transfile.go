@@ -37,7 +37,7 @@ func (this *TransFileRouter) Handle(request ziface.IRequest) {
 		return
 	}
 
-	fmt.Printf("id=%s|index=%d|maxIndex=%d|length of cont=%d, pack recv...\n", string(filePart.FileId), filePart.FileIndex, filePart.FileMaxIndex, len(filePart.PartContent))
+	//fmt.Printf("id=%s|index=%d|maxIndex=%d|length of cont=%d, pack recv...\n", string(filePart.FileId), filePart.FileIndex, filePart.FileMaxIndex, len(filePart.PartContent))
 	filemanage.Add(filemanage.FilePart{
 		Id:       string(filePart.FileId),
 		Index:    filePart.FileIndex,
